@@ -1,10 +1,10 @@
-export default class Slider {
+import Slider from "./Slider";
+
+export default class MainSlider extends Slider {
   constructor(page, buttons) {
-    this.page = document.querySelector(page);
-    this.slides = this.page.children;
-    this.buttons = document.querySelectorAll(buttons);
-    this.slideIndex = 1;
+    super(page, buttons);
   }
+
   showSlides(n) {
     if (n > this.slides.length) {
       this.slideIndex = 1;

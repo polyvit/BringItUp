@@ -4,7 +4,7 @@ Educational project (OOP style)
 
 Tasks:
 
-1. Slider
+1. Sliders
 2. Popup after a time delay
 3. Videoplayer
 

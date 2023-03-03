@@ -2763,6 +2763,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_slider_Slider_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/slider/Slider-main */ "./src/js/modules/slider/Slider-main.js");
 /* harmony import */ var _modules_slider_Slider_mini__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider/Slider-mini */ "./src/js/modules/slider/Slider-mini.js");
 /* harmony import */ var _modules_Videoplayer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/Videoplayer */ "./src/js/modules/Videoplayer.js");
+/* harmony import */ var _modules_Difference__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/Difference */ "./src/js/modules/Difference.js");
+
 
 
 
@@ -2799,7 +2801,82 @@ window.addEventListener("DOMContentLoaded", function () {
   feedSlider.init();
   var videoplayer = new _modules_Videoplayer__WEBPACK_IMPORTED_MODULE_2__["default"](".showup .play", ".overlay");
   videoplayer.init();
+  var showDifference = new _modules_Difference__WEBPACK_IMPORTED_MODULE_3__["default"](".officerold", ".officernew", ".officer__card-item");
+  showDifference.init();
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/Difference.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/Difference.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ShowDifference; });
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var ShowDifference =
+/*#__PURE__*/
+function () {
+  function ShowDifference(columnLeft, columnRight, cards) {
+    _classCallCheck(this, ShowDifference);
+
+    this.columnLeft = document.querySelector(columnLeft);
+    this.columnRight = document.querySelector(columnRight);
+    this.leftCards = this.columnLeft.querySelectorAll(cards);
+    this.rightCards = this.columnRight.querySelectorAll(cards);
+    this.leftCounter = 0;
+    this.rightCounter = 0;
+  }
+
+  _createClass(ShowDifference, [{
+    key: "bindTriggers",
+    value: function bindTriggers(container, items, counter) {
+      container.querySelector(".plus").addEventListener("click", function () {
+        if (counter !== items.length - 2) {
+          items[counter].style.display = "flex";
+          counter++;
+        } else {
+          items[counter].style.display = "flex";
+          items[items.length - 1].remove();
+        }
+      });
+    }
+  }, {
+    key: "hideCards",
+    value: function hideCards(cards) {
+      cards.forEach(function (card, i, arr) {
+        if (i !== arr.length - 1) {
+          card.style.display = "none";
+        }
+      });
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      this.hideCards(this.leftCards);
+      this.hideCards(this.rightCards);
+      this.bindTriggers(this.columnLeft, this.leftCards, this.leftCounter);
+      this.bindTriggers(this.columnRight, this.rightCards, this.rightCounter);
+    }
+  }]);
+
+  return ShowDifference;
+}();
+
+
 
 /***/ }),
 

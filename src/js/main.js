@@ -36,10 +36,6 @@ window.addEventListener("DOMContentLoaded", () => {
   feedSlider.init();
   const videoplayer = new Videoplayer(".showup .play", ".overlay");
   videoplayer.init();
-  const showDifference = new ShowDifference(
-    ".officerold",
-    ".officernew",
-    ".officer__card-item"
-  );
-  showDifference.init();
+  new ShowDifference(".officerold", ".officer__card-item").init();
+  new ShowDifference(".officernew", ".officer__card-item").init();
 });

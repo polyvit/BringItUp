@@ -2801,8 +2801,8 @@ window.addEventListener("DOMContentLoaded", function () {
   feedSlider.init();
   var videoplayer = new _modules_Videoplayer__WEBPACK_IMPORTED_MODULE_2__["default"](".showup .play", ".overlay");
   videoplayer.init();
-  var showDifference = new _modules_Difference__WEBPACK_IMPORTED_MODULE_3__["default"](".officerold", ".officernew", ".officer__card-item");
-  showDifference.init();
+  new _modules_Difference__WEBPACK_IMPORTED_MODULE_3__["default"](".officerold", ".officer__card-item").init();
+  new _modules_Difference__WEBPACK_IMPORTED_MODULE_3__["default"](".officernew", ".officer__card-item").init();
 });
 
 /***/ }),
@@ -2830,34 +2830,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var ShowDifference =
 /*#__PURE__*/
 function () {
-  function ShowDifference(columnLeft, columnRight, cards) {
+  function ShowDifference(column, cards) {
     _classCallCheck(this, ShowDifference);
 
-    this.columnLeft = document.querySelector(columnLeft);
-    this.columnRight = document.querySelector(columnRight);
-    this.leftCards = this.columnLeft.querySelectorAll(cards);
-    this.rightCards = this.columnRight.querySelectorAll(cards);
-    this.leftCounter = 0;
-    this.rightCounter = 0;
+    this.column = document.querySelector(column);
+    this.cards = this.column.querySelectorAll(cards);
+    this.counter = 0;
   }
 
   _createClass(ShowDifference, [{
     key: "bindTriggers",
-    value: function bindTriggers(container, items, counter) {
-      container.querySelector(".plus").addEventListener("click", function () {
-        if (counter !== items.length - 2) {
-          items[counter].style.display = "flex";
-          counter++;
+    value: function bindTriggers() {
+      var _this = this;
+
+      this.column.querySelector(".plus").addEventListener("click", function () {
+        if (_this.counter !== _this.cards.length - 2) {
+          _this.cards[_this.counter].style.display = "flex";
+          _this.counter++;
         } else {
-          items[counter].style.display = "flex";
-          items[items.length - 1].remove();
+          _this.cards[_this.counter].style.display = "flex";
+
+          _this.cards[_this.cards.length - 1].remove();
         }
       });
     }
   }, {
     key: "hideCards",
-    value: function hideCards(cards) {
-      cards.forEach(function (card, i, arr) {
+    value: function hideCards() {
+      this.cards.forEach(function (card, i, arr) {
         if (i !== arr.length - 1) {
           card.style.display = "none";
         }
@@ -2866,10 +2866,8 @@ function () {
   }, {
     key: "init",
     value: function init() {
-      this.hideCards(this.leftCards);
-      this.hideCards(this.rightCards);
-      this.bindTriggers(this.columnLeft, this.leftCards, this.leftCounter);
-      this.bindTriggers(this.columnRight, this.rightCards, this.rightCounter);
+      this.hideCards();
+      this.bindTriggers();
     }
   }]);
 

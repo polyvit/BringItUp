@@ -1,7 +1,9 @@
 export default class ShowDifference {
   constructor(column, cards) {
     this.column = document.querySelector(column);
-    this.cards = this.column.querySelectorAll(cards);
+    try {
+      this.cards = this.column.querySelectorAll(cards);
+    } catch (e) {}
     this.counter = 0;
   }
   bindTriggers() {
@@ -23,7 +25,9 @@ export default class ShowDifference {
     });
   }
   init() {
-    this.hideCards();
-    this.bindTriggers();
+    try {
+      this.hideCards();
+      this.bindTriggers();
+    } catch (e) {}
   }
 }

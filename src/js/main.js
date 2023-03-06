@@ -10,6 +10,13 @@ window.addEventListener("DOMContentLoaded", () => {
     buttons: ".next",
   });
   mainSlider.render();
+  const secondPageSlider = new MainSlider({
+    container: ".moduleapp",
+    buttons: ".next",
+    next: ".nextmodule",
+    prev: ".prevmodule",
+  });
+  secondPageSlider.render();
   const showUpSlider = new MiniSlider({
     container: ".showup__content-slider",
     prev: ".showup__prev",

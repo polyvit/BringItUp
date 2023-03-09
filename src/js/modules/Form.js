@@ -83,7 +83,6 @@ export default class Form {
     });
   }
   init() {
-    console.log("it works 5");
     this.checkMailInputs();
     this.initMask();
     this.forms.forEach((f) => {

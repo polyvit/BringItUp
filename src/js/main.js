@@ -41,8 +41,8 @@ window.addEventListener("DOMContentLoaded", () => {
     activeClass: "card-active",
   });
   feedSlider.init();
-  const videoplayer = new Videoplayer(".showup .play", ".overlay");
-  videoplayer.init();
+  new Videoplayer(".showup .play", ".overlay").init();
+  new Videoplayer(".module__video-item .play", ".overlay").init();
   new ShowDifference(".officerold", ".officer__card-item").init();
   new ShowDifference(".officernew", ".officer__card-item").init();
   const forms = new Form(".form");

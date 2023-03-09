@@ -40,15 +40,13 @@ export default class MainSlider extends Slider {
         });
       });
       this.showSlides(this.slideIndex);
-      this.next.addEventListener("click", (e) => {
-        e.stopPropagation();
-        e.preventDefault();
-        this.plusSlides(1);
+      document.querySelectorAll(".nextmodule").forEach((item) => {
+        item.addEventListener("click", (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          this.plusSlides(1);
+        });
       });
-      // this.prev.addEventListener("click", () => {
-      //   console.log("click");
-      //   this.plusSlides(-1);
-      // });
       document.querySelectorAll(".prevmodule").forEach((item) => {
         item.addEventListener("click", (e) => {
           e.stopPropagation();

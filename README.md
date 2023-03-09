@@ -1,6 +1,6 @@
 BringItUp_study_project
 
-Educational project (OOP style)
+Educational multipage project (OOP style)
 
 Tasks:
 

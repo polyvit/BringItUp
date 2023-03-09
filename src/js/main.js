@@ -3,6 +3,7 @@ import MiniSlider from "./modules/slider/Slider-mini";
 import Videoplayer from "./modules/Videoplayer";
 import ShowDifference from "./modules/Difference";
 import Form from "./modules/Form";
+import Accordion from "./modules/Accordion";
 
 window.addEventListener("DOMContentLoaded", () => {
   const mainSlider = new MainSlider({
@@ -47,4 +48,5 @@ window.addEventListener("DOMContentLoaded", () => {
   new ShowDifference(".officernew", ".officer__card-item").init();
   const forms = new Form(".form");
   forms.init();
+  new Accordion(".plus__content").init();
 });

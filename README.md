@@ -8,6 +8,7 @@ Tasks:
 2. Popup after a time delay
 3. Videoplayer
 4. Forms with mask and validation
+5. Accordion
 
 Used:
 

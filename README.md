@@ -1,4 +1,4 @@
-<img src="https://i.ibb.co/LZ5prJv/logo-2.png" alt="logo-2" border="0">
+<image src="https://i.ibb.co/LZ5prJv/logo-2.png" alt="logo-2" border="0">
 
 # BringItUp
 
